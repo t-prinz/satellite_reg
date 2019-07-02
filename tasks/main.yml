@@ -43,7 +43,7 @@
 
   when: ansible_facts.distribution == "RedHat" and ansible_facts.distribution_major_version == "7"
 
-#### This section is for RHEL 7 systems
+#### This section is for RHEL 8 systems
 
 - name: Block for RHEL 8 systems
   block:
