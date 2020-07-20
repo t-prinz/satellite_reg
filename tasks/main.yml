@@ -38,7 +38,7 @@
 - name: Block for RHEL 7 systems
   block:
 
-  - name: Ensure repositories are enabled for RHEL 7 (bug workaround)
+  - name: Ensure repositories are enabled for RHEL 7
     command: "subscription-manager repos --enable=rhel-7-server-satellite-tools-6.5-rpms"
 
   when: ansible_facts.distribution == "RedHat" and ansible_facts.distribution_major_version == "7"
@@ -48,7 +48,7 @@
 - name: Block for RHEL 8 systems
   block:
 
-  - name: Ensure repositories are enabled for RHEL 8 (bug workaround)
+  - name: Ensure repositories are enabled for RHEL 8
     command: "subscription-manager repos --enable=satellite-tools-6.5-for-rhel-8-x86_64-rpms"
 
   when: ansible_facts.distribution == "RedHat" and ansible_facts.distribution_major_version == "8"
