@@ -1,5 +1,6 @@
 ---
 # defaults file for satellite_reg
+satellite_consumer_name:
 satellite_reg_servername: sat.example.com
-satellite_reg_organization: "Aero"
+satellite_reg_organization: "Default"
 satellite_reg_activation_key: "RHEL8-Activation-Key"

@@ -27,8 +27,14 @@
 - name: Clear out old subscription data
   command: "subscription-manager clean"
 
+#- name: print
+#  debug:
+#    msg: "Registering with {{ satellite_consumer_name | default('the hostname', true) }}"
+
 - name: Ensure system is subscribed
   redhat_subscription:
+    consumer_name: "{{ satellite_consumer_name if (satellite_consumer_name is defined) else omit }}"
+    force_register: True
     state: present
     activationkey: "{{ satellite_reg_activation_key }}"
     org_id: "{{ satellite_reg_organization }}"
