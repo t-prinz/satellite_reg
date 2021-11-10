@@ -32,7 +32,7 @@
 #    msg: "Registering with {{ satellite_consumer_name | default('the hostname', true) }}"
 
 - name: Ensure system is subscribed
-  redhat_subscription:
+  community.general.redhat_subscription:
     consumer_name: "{{ satellite_consumer_name if (satellite_consumer_name is defined) else omit }}"
     force_register: True
     state: present
