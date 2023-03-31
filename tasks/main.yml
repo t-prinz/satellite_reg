@@ -38,9 +38,9 @@
   community.general.redhat_subscription:
     activationkey: "{{ satellite_reg_activation_key }}"
     consumer_name: "{{ satellite_consumer_name | default(inventory_hostname, true) }}"
-    force_register: True
     org_id: "{{ satellite_reg_organization }}"
     state: present
+#    force_register: True
 
 #### This section is for RHEL 7 systems
 
