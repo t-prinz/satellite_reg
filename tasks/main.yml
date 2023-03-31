@@ -15,17 +15,20 @@
 - name: Check if consumer RPM is installed
   command: "rpm -qa"
   register: katello_check
-#  args:
-#    warn: false
 
 - name: Ensure consumer RPM is installed
   command: 'rpm -Uvh http://"{{ satellite_reg_servername }}"/pub/katello-ca-consumer-latest.noarch.rpm'
   when: "'katello-ca-consumer' not in katello_check.stdout"
-#  args:
-#    warn: false
 
-- name: Clear out old subscription data
-  command: "subscription-manager clean"
+- name: Remove all subscriptions
+  command: subscription-manager remove --all
+
+- name: Unregister from the portal
+  command: subscription-manager unregister
+  ignore_errors: true
+
+- name: Clean out configuration data
+  command: subscription-manager clean
 
 #- name: print
 #  debug:
