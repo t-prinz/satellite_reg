@@ -30,17 +30,17 @@
 - name: Clean out configuration data
   command: subscription-manager clean
 
-#- name: print
-#  debug:
-#    msg: "Registering with {{ satellite_consumer_name | default('the hostname', true) }}"
+- name: Print registration information
+  debug:
+    msg: "Registering {{ satellite_consumer_name | default(inventory_hostname, true) }} with Activation Key {{ satellite_reg_activation_key }} and Organization {{ satellite_reg_organization }}"
 
 - name: Ensure system is subscribed
   community.general.redhat_subscription:
-    consumer_name: "{{ satellite_consumer_name if (satellite_consumer_name is defined) else omit }}"
-    force_register: True
-    state: present
     activationkey: "{{ satellite_reg_activation_key }}"
+    consumer_name: "{{ satellite_consumer_name | default(inventory_hostname, true) }}"
+    force_register: True
     org_id: "{{ satellite_reg_organization }}"
+    state: present
 
 #### This section is for RHEL 7 systems
 
