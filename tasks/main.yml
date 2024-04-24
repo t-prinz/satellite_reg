@@ -33,7 +33,7 @@
 
 - name: Print registration information
   debug:
-    msg: "Registering {{ satellite_reg_consumer_name | default(inventory_hostname, true) }} with Activation Key {{ satellite_reg_activation_key }} and Organization {{ satellite_reg_organization }}"
+    msg: "Registering {{ satellite_reg_consumer_name | default(inventory_hostname, true) }} with Activation Key {{ satellite_reg_activation_key }} and Organization {{ satellite_reg_organization }} with server_insecure set to {{ satellite_reg_server_insecure }}"
 
 - name: Ensure system is subscribed
   community.general.redhat_subscription:
