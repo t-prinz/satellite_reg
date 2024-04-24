@@ -1,7 +1,7 @@
 ---
 # defaults file for satellite_reg
 satellite_reg_consumer_name: ""
-satellite_reg_server_insecure: True
+satellite_reg_server_insecure: False
 satellite_reg_servername: sat.example.com
 satellite_reg_organization: "Default"
 satellite_reg_activation_key: "RHEL8-Activation-Key"
