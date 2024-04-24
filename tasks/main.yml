@@ -33,15 +33,15 @@
 
 - name: Print registration information
   debug:
-    msg: "Registering {{ satellite_consumer_name | default(inventory_hostname, true) }} with Activation Key {{ satellite_reg_activation_key }} and Organization {{ satellite_reg_organization }}"
+    msg: "Registering {{ satellite_reg_consumer_name | default(inventory_hostname, true) }} with Activation Key {{ satellite_reg_activation_key }} and Organization {{ satellite_reg_organization }}"
 
 - name: Ensure system is subscribed
   community.general.redhat_subscription:
     activationkey: "{{ satellite_reg_activation_key }}"
-    consumer_name: "{{ satellite_consumer_name | default(inventory_hostname, true) }}"
+    consumer_name: "{{ satellite_reg_consumer_name | default(inventory_hostname, true) }}"
     org_id: "{{ satellite_reg_organization }}"
     server_hostname: "{{ satellite_reg_servername }}"
-    server_insecure: "{{ satellite_validate_certs }}"
+    server_insecure: "{{ satellite_reg_server_insecure }}"
     state: present
 
 #- name: Ensure katello-agent is installed
