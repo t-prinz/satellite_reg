@@ -12,13 +12,13 @@
     enabled: True
     state: started
 
-- name: Check if consumer RPM is installed
-  command: "rpm -qa"
-  register: katello_check
+#- name: Check if consumer RPM is installed
+#  command: "rpm -qa"
+#  register: katello_check
 
-- name: Ensure consumer RPM is installed
-  command: 'rpm -Uvh http://"{{ satellite_reg_servername }}"/pub/katello-ca-consumer-latest.noarch.rpm'
-  when: "'katello-ca-consumer' not in katello_check.stdout"
+#- name: Ensure consumer RPM is installed
+#  command: 'rpm -Uvh http://"{{ satellite_reg_servername }}"/pub/katello-ca-consumer-latest.noarch.rpm'
+#  when: "'katello-ca-consumer' not in katello_check.stdout"
 
 - name: Remove all subscriptions
   command: subscription-manager remove --all
@@ -42,13 +42,13 @@
     org_id: "{{ satellite_reg_organization }}"
     state: present
 
-- name: Ensure katello-agent is installed
-  package:
-    name: katello-agent
-    state: present
+#- name: Ensure katello-agent is installed
+#  package:
+#    name: katello-agent
+#    state: present
 
-- name: Ensure goferd is enabled and started
-  service:
-    name: goferd
-    enabled: True
-    state: started
+#- name: Ensure goferd is enabled and started
+#  service:
+#    name: goferd
+#    enabled: True
+#    state: started
