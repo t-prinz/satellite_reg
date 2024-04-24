@@ -40,7 +40,7 @@
     activationkey: "{{ satellite_reg_activation_key }}"
     consumer_name: "{{ satellite_reg_consumer_name | default(inventory_hostname, true) }}"
     org_id: "{{ satellite_reg_organization }}"
-    server_hostname: "{{ satellite_reg_servername }}"
+    server_hostname: "https://{{ satellite_reg_servername }}"
     server_insecure: "{{ satellite_reg_server_insecure }}"
     state: present
 
