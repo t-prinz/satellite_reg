@@ -41,7 +41,7 @@
     consumer_name: "{{ satellite_consumer_name | default(inventory_hostname, true) }}"
     org_id: "{{ satellite_reg_organization }}"
     server_hostname: "{{ satellite_reg_servername }}"
-    satellite_validate_certs: "{{ satellite_validate_certs }}"
+    server_insecure: "{{ satellite_validate_certs }}"
     state: present
 
 #- name: Ensure katello-agent is installed
