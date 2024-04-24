@@ -40,6 +40,7 @@
     activationkey: "{{ satellite_reg_activation_key }}"
     consumer_name: "{{ satellite_consumer_name | default(inventory_hostname, true) }}"
     org_id: "{{ satellite_reg_organization }}"
+    server_hostname: "{{ satellite_reg_servername }}"
     state: present
 
 #- name: Ensure katello-agent is installed
